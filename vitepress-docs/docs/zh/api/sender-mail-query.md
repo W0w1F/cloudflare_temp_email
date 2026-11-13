@@ -30,3 +30,5 @@ curl --get "$BASE/admin/mails"   -H "x-admin-auth: $ADMIN_PASSWORD"   --data-url
 如需全部结果，将 offset 依次增加 100，直到 results 长度小于 100。持续收信或删除期间偏移分页不是快照，可能重复或遗漏；本地应按 id 去重，并按需要重新拉取。返回的 raw 可使用本地 MIME 解析器提取正文和附件。
 
 没有新增公开匿名接口，也不改变现有邮箱 JWT 的访问范围。此功能由服务端 SQL 完成过滤，本地仅接收过滤后的邮件。
+
+[增量同步接口](./sender-mail-sync.md)

@@ -103,6 +103,7 @@ After completing any feature, bug fix, or improvement, **always check**:
    - `guide/feature/` — Feature-specific docs
    - `api/` — API reference docs
 3. **Both languages** — docs and changelogs exist in Chinese and English; always update both.
+4. **API additions and changes** — always update root `APPEND.md` for every new, modified, or deprecated API. Document purpose, method/path, authentication, request parameters/defaults, response fields, usage examples, error/edge behavior, compatibility, and migration requirements. Keep this fork-specific reference current alongside the bilingual feature docs; do not treat a commit-pinned upstream inventory as documentation for fork changes.
 
 ## Config
 

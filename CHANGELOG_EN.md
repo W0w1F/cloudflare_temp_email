@@ -12,6 +12,10 @@
 
 ### Features
 
+- docs: |API| Add APPEND.md for fork API purposes and usage, and require API documentation updates in the development checklist
+- feat: |API| Add an admin mail checkpoint endpoint to initialize independent task cursors from the current maximum mail ID
+- feat: |API| Add admin sender mail synchronization with ID cursors, bounded pagination and empty-result checkpoint advancement
+
 - feat: |API| Support exact SMTP sender filtering across mailboxes in the admin mail API with existing storage and pagination
 
 - feat: |Admin| Switch between single and batch creation, create batches of up to 100 random-name mailboxes, and export their auto-login links as spreadsheet-safe or lossless CSV

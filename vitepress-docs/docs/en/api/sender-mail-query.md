@@ -26,3 +26,5 @@ curl --get "$BASE/admin/mails"   -H "x-admin-auth: $ADMIN_PASSWORD"   --data-url
 Increase offset by 100 until results contains fewer than 100 rows. Offset pagination is not a snapshot during concurrent arrivals/deletions; deduplicate by ID and refresh as necessary. Parse raw locally using a MIME parser for bodies/attachments.
 
 Filtering runs server-side before returning mail. No anonymous endpoint is introduced and mailbox JWT permissions are unchanged.
+
+[Incremental synchronization](./sender-mail-sync.md)

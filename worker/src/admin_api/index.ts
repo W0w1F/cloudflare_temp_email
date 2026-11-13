@@ -34,6 +34,8 @@ api.post('/admin/address/:id/reset_password', address_api.resetPassword)
 // mail api
 api.get('/admin/mails', admin_mail_api.getMails)
 api.get('/admin/mails_unknow', admin_mail_api.getUnknowMails)
+api.get('/admin/mails/checkpoint', admin_mail_api.getMailCheckpoint)
+api.get('/admin/mails/sync', admin_mail_api.syncMails)
 api.get('/admin/mails/:id', admin_mail_api.getMail)
 api.delete('/admin/mails/:id', admin_mail_api.deleteMail)
 
