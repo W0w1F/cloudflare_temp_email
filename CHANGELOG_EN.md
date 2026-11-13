@@ -8,7 +8,11 @@
 
 ## v1.14.0(main)
 
+- docs: |API| Add a commit-pinned upstream HTTP route inventory, authentication notes, and common request examples
+
 ### Features
+
+- feat: |API| Support exact SMTP sender filtering across mailboxes in the admin mail API with existing storage and pagination
 
 - feat: |Admin| Switch between single and batch creation, create batches of up to 100 random-name mailboxes, and export their auto-login links as spreadsheet-safe or lossless CSV
 - feat: |Admin Statistics| Add a dashboard with mail, mailbox, user and sent mail totals, 7- and 30-day mailbox and user activity, and site-wide trends by date

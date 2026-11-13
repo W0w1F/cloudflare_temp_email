@@ -4,12 +4,18 @@ import { resolveRawEmailRow } from "../gzip";
 
 export default {
     getMails: async (c: Context<HonoCustomType>) => {
-        const { address, limit, offset } = c.req.query();
+        const { address, sender, limit, offset } = c.req.query();
+        // An explicitly empty sender must not accidentally expose an unfiltered list.
+        if (sender !== undefined && !sender.trim()) {
+            return c.text("sender must not be empty", 400);
+        }
+        const senderQuery = sender !== undefined ? `source = ? COLLATE NOCASE` : "";
+        const senderParams = sender !== undefined ? [sender.trim()] : [];
         const addressQuery = address ? `address = ?` : "";
         const addressParams = address ? [address] : [];
-        const filterQuerys = [addressQuery].filter((item) => item).join(" and ");
+        const filterQuerys = [addressQuery, senderQuery].filter((item) => item).join(" and ");
         const finalQuery = filterQuerys.length > 0 ? `where ${filterQuerys}` : "";
-        const filterParams = [...addressParams]
+        const filterParams = [...addressParams, ...senderParams]
         return await handleMailListQuery(c,
             `SELECT * FROM raw_mails ${finalQuery}`,
             `SELECT count(*) as count FROM raw_mails ${finalQuery}`,
